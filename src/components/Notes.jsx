@@ -20,13 +20,13 @@ const Notes = ({ notes, onEdit, onRemove,onClear }) => {
             </div>
             <hr className="text-gray-300" />
             <div className="flex flex-row justify-between items-center gap-4 mt-2 ">
-              <p className="break-words whitespace-pre-wrap h-full max-h-36 overflow-auto">
+              <p className="break-words capitalize whitespace-pre-wrap h-full max-h-36 overflow-auto">
                 {note.text}
               </p>
 
               <div className="flex flex-row gap-2">
                 <button
-                  onClick={() => onEdit(index)}
+                  onClick={() => onEdit(note.id)}
                   className="bg-amber-200 p-2 rounded-md cursor-pointer border border-amber-500"
                 >
                   Düzenle

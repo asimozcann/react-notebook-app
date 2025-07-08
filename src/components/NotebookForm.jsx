@@ -40,14 +40,17 @@ const NotebookForm = () => {
     setTitle("");
     setText("");
   };
+  const handleEdit = (id) => {
+    const index = notes.findIndex((note) => note.id === id);
+    if (index === -1) return; // not bulunamazsa çık
 
-  const handleEdit = (index) => {
     const note = notes[index];
     setCategory(note.category);
     setTitle(note.title);
     setText(note.text);
     setEditIndex(index);
   };
+
   const removeNote = (id) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
   };
@@ -64,7 +67,7 @@ const NotebookForm = () => {
       <h1 className="my-4 text-2xl font-semibold">Yeni Not Ekle</h1>
       <form onSubmit={addNewNote}>
         <input
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full capitalize p-2 border border-gray-300 rounded-md"
           type="text"
           placeholder="Not Başlığı "
           value={title}
@@ -89,7 +92,7 @@ const NotebookForm = () => {
         </div>
         <textarea
           type="text"
-          className="resize-none w-full border p-2 rounded-md border-gray-300"
+          className="resize-none capitalize w-full border p-2 rounded-md border-gray-300"
           rows="6"
           placeholder="Notunuzu buraya yazınız..."
           value={text}
